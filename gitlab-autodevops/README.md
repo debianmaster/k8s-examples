@@ -1,3 +1,3 @@
 ```sh
-elm install gitlab/gitlab-runner --set gitlabUrl=http://gitlab.apps.singa.openshiftworkshop.com/,runnerRegistrationToken=DummyToken
+helm install gitlab/gitlab-runner --set gitlabUrl=http://gitlab.apps.singa.openshiftworkshop.com/,runnerRegistrationToken=DummyToken
 ```
