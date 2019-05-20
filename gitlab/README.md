@@ -8,6 +8,11 @@ sleep 3
 helm init
 oc adm policy add-cluster-role-to-user cluster-admin -z default -n kube-system
 
+curl -LO https://raw.githubusercontent.com/rancher/local-path-provisioner/master/deploy/local-path-storage.yaml
+kubectl apply -f local-path-storage.yaml
+kubectl patch storageclass local-path -p '{"metadata": {"annotations":{"storageclass.kubernetes.io/is-default-class":"true"}}}'
+
+
 helm upgrade --install gitlab gitlab/gitlab \
   --timeout 600 \
   --set global.hosts.domain=192.168.1.70.nip.io \
