@@ -24,4 +24,9 @@ velero install \
 sleep 10
 
 https://raw.githubusercontent.com/heptio/velero/master/examples/nginx-app/base.yaml
+
+velero backup create b1 --include-namespaces=nginx-example
+velero backup describe b1
+velero backup logs b1
+
 ```
