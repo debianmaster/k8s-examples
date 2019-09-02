@@ -10,6 +10,7 @@ cat .credentials-velero
 aws_access_key_id = 'minio'
 aws_secret_access_key = 'minio123'
 
+kubectl config set-context --current --namespace=velero
 velero install \
     --provider aws \
     --bucket velero \
@@ -20,5 +21,7 @@ velero install \
     --snapshot-location-config region=velero \
     --backup-location-config region=minio,s3ForcePathStyle="true",s3Url=http://minio:9000
     
-kubectl config set-context --current --namespace=velero
+sleep 10
+
+https://raw.githubusercontent.com/heptio/velero/master/examples/nginx-app/base.yaml
 ```
