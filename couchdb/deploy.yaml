@@ -1,0 +1,41 @@
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  name: couchdb
+spec:
+  ports:
+  - port: 5984
+    protocol: TCP
+    targetPort: 5984
+  selector:
+    run: couchdb
+status:
+  loadBalancer: {}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    run: couchdb
+  name: couchdb
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      run: couchdb
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        run: couchdb
+    spec:
+      containers:
+      - image: couchdb
+        name: couchdb
+        ports:
+        - containerPort: 5984
+        resources: {}
+status: {}
