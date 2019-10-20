@@ -1,0 +1,31 @@
+ssh_authorized_keys:
+- ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDgyraBle2hZU5/cVn/fCRDsPuk/SRvhy1PvqCQcvSRnki3RXMANPsU96M3FDPuvsLP7dm3ijTd58bDHKI4+9YngfAGHETbSzcaaA9VFzZpQP7OODVGpSxqo0igaHeDP/VypUmY52wqQcXPzlGAkwxoGs+twUn0LPJ0v7y8LbMPSeYgAjP7/ulOMxUSYeKtNjthubss6/TfaTKnj74JUJziI44r0VQtj5N18Johg2XA9SqOxgcggTIU1LRsD7q0Uyqvek4ksP6N/6c8W5QJuVEnE46wjcHIxYYavcjVOJfdz7FY7ijzvRgeNtneENYUFIJOcjDPaaHHXSnxLTv2pqIN chakradharrao@Chakradhars-MacBook-Pro.local
+- github:debianmaster
+write_files:
+- encoding: ""
+  content: |-
+    #!/bin/bash
+    echo hi
+  owner: root
+  path: /etc/rc.local
+  permissions: '0755'
+hostname: k3s-master1
+run_cmd:
+- "echo hi && echo bye"
+boot_cmd:
+- "echo hi && echo bye"
+init_cmd:
+- "echo hi && echo bye"
+k3os:
+  data_sources: 
+  - aws
+  - cdrom
+  password: sample_token
+  server_url: https://k8s.cape.sh:6443
+  token: sample_token
+  k3s_args:
+  - server
+  - "--disable-agent"
+  environment:
+    K3S_TOKEN: sample_token
+    K3S_CLUSTER_SECRET: sample_token
