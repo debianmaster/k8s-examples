@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: ngrok
+spec:
+  selector:
+    matchLabels:
+      app: ngrok
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: ngrok
+    spec:
+      hostNetwork: true
+      containers:
+      - name: ngrok
+        image: wernight/ngrok
+        command: ["ngrok"]
+        args: ["tcp", "6443","--authtoken","<your auth token here>"]
