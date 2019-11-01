@@ -1,5 +1,5 @@
 ## update configs
-> . update your ngrok auth key and master node label
+> . update your ngrok auth key and master node label in deploy.yaml
 
 ## deploy following pod on any master
 ```sh
