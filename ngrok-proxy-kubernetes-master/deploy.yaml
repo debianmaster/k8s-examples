@@ -13,8 +13,12 @@ spec:
         app: ngrok
     spec:
       hostNetwork: true
+      nodeSelector:
+        kubernetes.io/hostname: masternode.local
       containers:
       - name: ngrok
         image: wernight/ngrok
         command: ["ngrok"]
         args: ["tcp", "6443","--authtoken","<your auth token here>"]
+        ports:
+        - containerPort: 7777
