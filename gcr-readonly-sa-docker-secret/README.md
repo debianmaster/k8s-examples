@@ -8,3 +8,7 @@ gcloud projects add-iam-policy-binding the-project --member serviceAccount:test-
 gcloud iam service-accounts keys create \
       --iam-account test-readonly@the-project.iam.gserviceaccount.com key.json
 ```
+
+
+```sh
+https://blog.container-solutions.com/using-google-container-registry-with-kubernetes```
