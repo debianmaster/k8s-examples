@@ -28,3 +28,8 @@ helm install --name authproxy \
     --set authenticatedEmailsFile.restricted_access="abc@gmail.com" \
     stable/oauth2-proxy
  ```
+
+> Auth callback on github
+```
+http://127.0.0.1:4180/oauth2/callback
+```
