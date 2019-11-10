@@ -33,3 +33,6 @@ helm install --name authproxy \
 ```
 http://127.0.0.1:4180/oauth2/callback
 ```
+
+
+https://akomljen.com/protect-kubernetes-external-endpoints-with-oauth2-proxy/
