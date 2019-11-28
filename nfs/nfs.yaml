@@ -1,8 +1,17 @@
 ---
+apiVersion: v1
+kind: Namespace
+metadata:
+  creationTimestamp: null
+  name: nfs
+spec: {}
+status: {}
+---
 kind: StorageClass
 apiVersion: storage.k8s.io/v1
 metadata:
   name: example-nfs
+  namespace: nfs
   annotations:
     storageclass.kubernetes.io/is-default-class: "true"
 provisioner: example.com/nfs
@@ -13,11 +22,13 @@ apiVersion: v1
 kind: ServiceAccount
 metadata:
   name: nfs-provisioner
+  namespace: nfs
 ---
 kind: Service
 apiVersion: v1
 metadata:
   name: nfs-provisioner
+  namespace: nfs
   labels:
     app: nfs-provisioner
 spec:
@@ -38,6 +49,7 @@ kind: Deployment
 apiVersion: apps/v1
 metadata:
   name: nfs-provisioner
+  namespace: nfs
 spec:
   selector:
     matchLabels:
@@ -94,7 +106,7 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRoleBinding
 metadata:
   creationTimestamp: null
-  name: cluster-admin-0
+  name: cluster-admin-nfs
 roleRef:
   apiGroup: rbac.authorization.k8s.io
   kind: ClusterRole
@@ -102,5 +114,5 @@ roleRef:
 subjects:
 - kind: ServiceAccount
   name: nfs-provisioner
-  namespace: default
+  namespace: nfs
 
