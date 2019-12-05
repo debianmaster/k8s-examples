@@ -8,6 +8,7 @@ inlets server --port=8090 --token="$token" --print-token=true
 
 
 ## On k8s cluster
+> inlet.yaml 
 ```sh
 kubectl create secret generic inlets-token --from-literal token=${TOKEN}
 ```
@@ -43,4 +44,8 @@ spec:
         - name: inlets-token-volume
           secret:
             secretName: inlets-token
+```
+
+```sh
+k apply -f inlet.yaml --validate=false
 ```
