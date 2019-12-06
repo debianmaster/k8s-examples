@@ -49,3 +49,12 @@ spec:
 ```sh
 k apply -f inlet.yaml --validate=false
 ```
+
+
+```sh
+sudo echo '127.0.0.1 cluster1.run' >> /etc/hosts
+```
+
+```sh
+open https://cluster1.run:8090
+```
