@@ -1,3 +1,9 @@
+
+```sh
+git clone https://github.com/kubernetes-incubator/metrics-server.git
+kubectl apply -f metrics-server/deploy/1.8+/
+```
+
 ```sh
 k apply -f https://raw.githubusercontent.com/kubernetes/kubernetes/master/cluster/addons/metrics-server/auth-delegator.yaml
 k apply -f https://raw.githubusercontent.com/kubernetes/kubernetes/master/cluster/addons/metrics-server/auth-reader.yaml
