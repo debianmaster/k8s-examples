@@ -1,0 +1,15 @@
+kind: Pod 
+apiVersion: v1 
+metadata:
+  name: install-job 
+spec:
+  volumes:
+    - name: chart-values
+      configMap:
+        name: chart-values
+  containers:
+    - name: job
+      image: debianmaster/helm-installer:latest
+      volumeMounts:
+        - name: chart-values
+          mountPath: /tmp/values
