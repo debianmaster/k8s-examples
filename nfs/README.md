@@ -7,6 +7,8 @@ k patch storageclass local-path -p '{"metadata":{"annotations":{"storageclass.ku
 
 old versions
 k apply -f https://raw.githubusercontent.com/debianmaster/k8s-examples/master/nfs/nfs-old.yaml
+k apply -f https://raw.githubusercontent.com/debianmaster/k8s-examples/master/nfs/nfs-old-nodefault.yaml
+k delete -f https://raw.githubusercontent.com/debianmaster/k8s-examples/master/nfs/nfs-old.yaml
 
 ```
 
