@@ -11,7 +11,7 @@ cd cf-for-k8s
 
 # add following to cf-values.yml
 app_registry:
-  hostname: hub.docker.com
+  hostname: https://index.docker.io/v1/
   repository: myuser
   username: myuser
   password: mypass
