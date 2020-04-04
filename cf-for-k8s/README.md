@@ -30,4 +30,4 @@ cf target -o test-org -s test-space
 cf enable-feature-flag diego_docker
 cf push test-app -o cloudfoundry/diego-docker-app
 cf push test-node-app -p tests/smoke/assets/test-node-app
-``
+```
