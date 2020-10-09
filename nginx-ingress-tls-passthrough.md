@@ -28,3 +28,28 @@ k get deploy -n ingress-nginx ingress-nginx-controller -oyaml
  k annotate ing -n cape ui-ingress nginx.ingress.kubernetes.io/ssl-redirect="true"
  k annotate ing -n cape ui-ingress nginx.ingress.kubernetes.io/ssl-passthrough="true"
  ```
+
+
+```
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: virtualcluster-api
+  namespace: v1
+  annotations:
+    nginx.ingress.kubernetes.io/ssl-passthrough: "true"
+    nginx.ingress.kubernetes.io/ssl-redirect: "true"
+spec:
+  tls:
+   - hosts:
+     - virtualcluster.dev.cape.sh
+  rules:
+  - host: virtualcluster.dev.cape.sh
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: virtualcluster
+          servicePort: 443
+          
+ ```
