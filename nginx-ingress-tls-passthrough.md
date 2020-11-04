@@ -53,3 +53,8 @@ spec:
           servicePort: 443
           
  ```
+
+
+```
+helm install --namespace=kube-system nginx-ingress stable/nginx-ingress --set rbac.create=true --set controller.publishService.enabled=true --version=v0.34.1
+```
