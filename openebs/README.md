@@ -1,6 +1,7 @@
 ```
 gcloud compute instances create openebs1-1 --project=gcp-project-name --zone=us-central1-a --machine-type=e2-standard-2 --network-interface=network-tier=PREMIUM,subnet=default --maintenance-policy=MIGRATE --service-account=498066266080-compute@developer.gserviceaccount.com --scopes=https://www.googleapis.com/auth/devstorage.read_only,https://www.googleapis.com/auth/logging.write,https://www.googleapis.com/auth/monitoring.write,https://www.googleapis.com/auth/servicecontrol,https://www.googleapis.com/auth/service.management.readonly,https://www.googleapis.com/auth/trace.append --tags=http-server,https-server --create-disk=auto-delete=yes,boot=yes,device-name=openebs1-1,image=projects/ubuntu-os-cloud/global/images/ubuntu-1804-bionic-v20220111,mode=rw,size=50,type=projects/gcp-project-name/zones/us-central1-a/diskTypes/pd-balanced --create-disk=auto-delete=yes,device-name=disk-1,mode=rw,name=openebs1-disk-1,size=30,type=projects/gcp-project-name/zones/us-central1-a/diskTypes/pd-balanced --create-disk=auto-delete=yes,device-name=disk-2,mode=rw,name=openebs1-disk-2,size=30,type=projects/gcp-project-name/zones/us-central1-a/diskTypes/pd-balanced --create-disk=auto-delete=yes,device-name=disk-3,mode=rw,name=openebs1-disk-3,size=30,type=projects/gcp-project-name/zones/us-central1-a/diskTypes/pd-balanced --no-shielded-secure-boot --shielded-vtpm --shielded-integrity-monitoring --reservation-affinity=any
 
+gcloud compute instances ssh openebs1-1
 
 ```
 
