@@ -1,0 +1,32 @@
+   ```
+   apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: ngrok
+  name: ngrok
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: ngrok
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: ngrok
+    spec:
+      containers:
+      - command:
+        - ngrok
+        - tcp
+        - kubernetes:443
+        - --authtoken=token
+        image: wernight/ngrok
+        name: ngrok
+        resources: {}
+status: {}
+
+```
